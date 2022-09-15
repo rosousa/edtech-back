@@ -7,7 +7,19 @@ async function listProducts(req, res) {
         res.status(201).send(products);
     } catch (error) {
         console.error(error);
+        res.sendStatus(500);
     }
 }
 
-export { listProducts };
+async function sendProduct(req, res) {
+    const productId = req.params;
+    try {
+        const product = await db.collection("products").findOne({ _id: ObjectId(req.params)});
+        res.status(201).send(product);
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+}
+
+export { listProducts, sendProduct };
