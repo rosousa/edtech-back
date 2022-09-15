@@ -11,7 +11,7 @@ async function listProducts(req, res) {
     }
 }
 
-async function sendProduct(req, res) {
+async function getProduct(req, res) {
     const productId = req.params;
     try {
         const product = await db.collection("products").findOne({ _id: ObjectId(req.params)});
@@ -22,4 +22,4 @@ async function sendProduct(req, res) {
     }
 }
 
-export { listProducts, sendProduct };
+export { listProducts, getProduct };
