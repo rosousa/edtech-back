@@ -19,10 +19,9 @@ async function signIn(req, res, next) {
 }
 
 async function signUp(req, res, next) {
-  const { name, email, password, passwordConfirm } = req.body;
+  const { email, password, passwordConfirm } = req.body;
 
   const validCredentials = authSchemas.signUpSchema.validate({
-    name,
     email,
     password,
     passwordConfirm,
@@ -39,7 +38,7 @@ async function signUp(req, res, next) {
       return res.sendStatus(409);
     }
 
-    res.locals.signUpCredentials = { name, email, password };
+    res.locals.signUpCredentials = { email, password };
   } catch (error) {
     console.log(error);
     res.sendStatus(500);

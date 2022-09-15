@@ -9,7 +9,6 @@ const signInSchema = joi.object({
 });
 
 const signUpSchema = joi.object({
-  name: joi.string().trim().required(),
   email: joi.string().email({
     minDomainSegments: 2,
     tlds: { allow: ["com", "net"] },

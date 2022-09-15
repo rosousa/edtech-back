@@ -37,14 +37,12 @@ async function signIn(req, res) {
 }
 
 async function signUp(req, res) {
-  const { name, email, password } = res.locals.signUpCredentials;
+  const { email, password } = res.locals.signUpCredentials;
 
   try {
     const hashPassword = bcrypt.hashSync(password, 10);
 
-    await db
-      .collection("User")
-      .insertOne({ name, email, password: hashPassword });
+    await db.collection("User").insertOne({ email, password: hashPassword });
 
     res.sendStatus(201);
   } catch (error) {
