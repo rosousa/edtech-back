@@ -1,10 +1,10 @@
-import * as authSchemas from "../schemas/authSchema.js";
+import * as authenticationSchemas from "../schemas/authenticationSchema.js";
 import db from "../database/db.js";
 
 async function signIn(req, res, next) {
   const { email, password } = req.body;
 
-  const validCredentials = authSchemas.signInSchema.validate({
+  const validCredentials = authenticationSchemas.signInSchema.validate({
     email,
     password,
   });
@@ -21,7 +21,7 @@ async function signIn(req, res, next) {
 async function signUp(req, res, next) {
   const { email, password, passwordConfirm } = req.body;
 
-  const validCredentials = authSchemas.signUpSchema.validate({
+  const validCredentials = authenticationSchemas.signUpSchema.validate({
     email,
     password,
     passwordConfirm,
