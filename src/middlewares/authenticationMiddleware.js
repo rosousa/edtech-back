@@ -10,7 +10,7 @@ async function signIn(req, res, next) {
   });
 
   if (validCredentials.error) {
-    return res.sendStatus(401);
+    return res.sendStatus(422);
   }
 
   res.locals.signInCredentials = { email, password };
@@ -28,7 +28,7 @@ async function signUp(req, res, next) {
   });
 
   if (validCredentials.error) {
-    return res.sendStatus(401);
+    return res.sendStatus(422);
   }
 
   try {

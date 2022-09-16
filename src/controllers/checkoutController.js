@@ -11,7 +11,7 @@ async function checkout(req, res) {
   });
 
   if (validCheckout.error) {
-    return res.sendStatus(401);
+    return res.sendStatus(422);
   }
 
   const date = new Date().toLocaleDateString("pt-BR");
