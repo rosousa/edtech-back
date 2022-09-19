@@ -14,7 +14,7 @@ async function listProducts(req, res) {
 async function getProduct(req, res) {
     const productId = req.params;
     try {
-        const product = await db.collection("products").findOne({ _id: ObjectId(req.params)});
+        const product = await db.collection("products").findOne({ _id: productId});
         res.status(201).send(product);
     } catch (error) {
         console.error(error);
