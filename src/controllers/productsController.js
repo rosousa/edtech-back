@@ -1,4 +1,5 @@
 import db from "../database/db.js";
+import { ObjectId } from "mongodb"
 
 async function listProducts(req, res) {
     try {
@@ -12,9 +13,9 @@ async function listProducts(req, res) {
 }
 
 async function getProduct(req, res) {
-    const productId = req.params;
+    const productId = req.params.productId;
     try {
-        const product = await db.collection("products").findOne({ _id: productId});
+        const product = await db.collection("products").findOne({ _id: ObjectId(productId)});
         res.status(201).send(product);
     } catch (error) {
         console.error(error);
