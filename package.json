@@ -4,7 +4,11 @@
   "type": "module",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node ./src/index.js",
+		"dev": "npx nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rosousa/projeto14-edtech-back.git"
